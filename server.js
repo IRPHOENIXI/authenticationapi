@@ -87,18 +87,6 @@ app.post('/api/register', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid username' })
 	}
 
-	/*if (!FullName || typeof username !== 'string') {
-		return res.json({ status: 'error', error: 'Invalid Full Name' })
-	}
-
-	if (!PhoneNumber || typeof username !== 'string') {
-		return res.json({ status: 'error', error: 'Invalid Phone Number' })
-	}
-
-	if (!Email || typeof username !== 'string') {
-		return res.json({ status: 'error', error: 'Invalid E-Mail' })
-	}*/
-
 	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid password' })
 	}
@@ -115,9 +103,6 @@ app.post('/api/register', async (req, res) => {
 	try {
 		const response = await User.create({
 			username,
-			FullName,
-			PhoneNumber,
-			Email,
 			password
 		})
 		console.log('User created successfully: ', response)
