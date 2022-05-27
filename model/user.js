@@ -1,33 +1,28 @@
-//digunakan untuk membuat model database
+//this code for database modelling
 
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema(
 	{
+		Email: {
+			type: String,
+			required: true,
+			min: 6,
+			max: 255,
+			unique:true,
+		},
 		username: {
 			type: String,
 			required: true,
 			min: 6,
 			max: 255,
-			unique: true
+			unique: true,
 		},
-		FullName: {
+		pnumber: {
 			type: String,
 			required: true,
-			min: 6,
-			max: 255
-		},
-		PhoneNumber: {
-			type: String,
-			required: true,
-			min: 6,
-			max: 255
-		},
-		Email: {
-			type: String,
-			required: true,
-			min: 6,
-			max: 255
+			min: 8,
+			max: 1024
 		},
 		password: {
 			type: String,
